@@ -45,10 +45,9 @@ module Pact
           require 'pact/provider/proxy/configure_service_provider'
 
           Pact::Proxy::ConfigureServiceProvider.call @provider_base_url
-          options = {criteria: spec_criteria(args)}
 
           handle_verification_failure do
-            Provider::PactSpecRunner.new(@pact_spec_configs, options).run
+            Provider::PactSpecRunner.new(@pact_spec_configs, {}).run
           end
         end
       end
